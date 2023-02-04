@@ -6,7 +6,7 @@
 /*   By: nikoraxx <nikoraxx@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:55:12 by nikoraxx          #+#    #+#             */
-/*   Updated: 2023/02/03 17:51:25 by nikoraxx         ###   ########.fr       */
+/*   Updated: 2023/02/04 13:12:52 by nikoraxx         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,10 @@ Fixed::Fixed(void): _MASK(8), _value(0)
 	// std::cout << "Default constructor called.\n";
 }
 
-Fixed::Fixed(const int integer): _MASK(8), _value(integer << _MASK)
-{
-	// std::cout << "Int constructor called.\n";
-}
-
-Fixed::Fixed(const float floating_point): _MASK(8), _value(round(floating_point * (1 << _MASK)))
-{
-	// std::cout << "Float constructor called.\n";
-}
-
 Fixed::~Fixed(void)
 {
 	// std::cout << "Destructor called.\n";
 }
-
-//	Constructors
 
 Fixed::Fixed(const Fixed &to_copy): _MASK(8)
 {
@@ -48,6 +36,18 @@ Fixed &Fixed::operator = (const Fixed &to_set_to)
 	// std::cout << "Copy assignment operator called.\n";
 	this->_value = to_set_to.getRawBits();
 	return (*this);
+}
+
+//	Constructors
+
+Fixed::Fixed(const int integer): _MASK(8), _value(integer << _MASK)
+{
+	// std::cout << "Int constructor called.\n";
+}
+
+Fixed::Fixed(const float floating_point): _MASK(8), _value(round(floating_point * (1 << _MASK)))
+{
+	// std::cout << "Float constructor called.\n";
 }
 
 //	Methods
